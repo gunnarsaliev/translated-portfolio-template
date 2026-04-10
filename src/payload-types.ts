@@ -178,6 +178,7 @@ export interface Media {
 export interface Post {
   id: number;
   title: string;
+  bannerImage: number | Media;
   content: {
     root: {
       type: string;
@@ -418,6 +419,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
+  bannerImage?: T;
   content?: T;
   generateSlug?: T;
   slug?: T;

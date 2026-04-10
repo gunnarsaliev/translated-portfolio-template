@@ -1,6 +1,12 @@
 import type { CollectionConfig } from 'payload'
 import { slugField } from 'payload'
-import { lexicalEditor, HeadingFeature, LinkFeature } from '@payloadcms/richtext-lexical'
+import {
+  lexicalEditor,
+  HeadingFeature,
+  LinkFeature,
+  FixedToolbarFeature,
+  InlineToolbarFeature,
+} from '@payloadcms/richtext-lexical'
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
@@ -25,7 +31,15 @@ export const Posts: CollectionConfig = {
     {
       name: 'title',
       type: 'text',
+      label: 'Post Title',
       required: true,
+    },
+    {
+      name: 'bannerImage',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+      label: 'Banner Image',
     },
     {
       name: 'content',
@@ -40,6 +54,8 @@ export const Posts: CollectionConfig = {
           LinkFeature({
             enabledCollections: ['posts'],
           }),
+          FixedToolbarFeature(),
+          InlineToolbarFeature(),
         ],
       }),
     },
