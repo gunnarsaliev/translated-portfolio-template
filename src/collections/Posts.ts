@@ -13,6 +13,12 @@ export const Posts: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', '_status', 'createdAt'],
+    preview: (data) => {
+      const slug = data?.slug
+      const isPublished = data?._status === 'published'
+      if (!slug || !isPublished) return null
+      return `/blog/${slug}`
+    },
   },
   versions: {
     drafts: {
