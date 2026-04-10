@@ -65,6 +65,23 @@ export const Posts: CollectionConfig = {
         ],
       }),
     },
+    {
+      name: 'meta',
+      type: 'group',
+      label: 'SEO',
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          label: 'Meta Title',
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          label: 'Meta Description',
+        },
+      ],
+    },
     slugField(),
   ],
   timestamps: true,
