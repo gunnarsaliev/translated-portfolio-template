@@ -66,6 +66,13 @@ export const Posts: CollectionConfig = {
       }),
     },
     {
+      name: 'categories',
+      type: 'relationship',
+      relationTo: 'categories',
+      hasMany: true,
+      label: 'Categories',
+    },
+    {
       name: 'meta',
       type: 'group',
       label: 'SEO',
